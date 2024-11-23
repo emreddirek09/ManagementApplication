@@ -27,5 +27,6 @@ namespace ManagementApplication.Ui.Server.Controllers
 
             return NoContent();
         }
+         
     }
 }

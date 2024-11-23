@@ -1,4 +1,7 @@
 ﻿using ManagementApplication.APP.Features.Commands.FCase.CreateCase;
+using ManagementApplication.APP.Features.Commands.FCase.DeleteCase;
+using ManagementApplication.APP.Features.Commands.FCase.IsTheCaseCompleted;
+using ManagementApplication.APP.Features.Commands.FCase.UpdateCase;
 using ManagementApplication.APP.Features.Commands.FRole.AssignRole;
 using ManagementApplication.APP.Features.Queries.FCase.GetAllCase;
 using ManagementApplication.APP.Features.Queries.FCase.GetCaseById;
@@ -60,5 +63,46 @@ namespace ManagementApplication.Ui.Server.Controllers
 
             return BadRequest(ModelState);
         }
+
+        [HttpGet("UpdateCase")]
+        public async Task<IActionResult> UpdateCase([FromQuery] UpdateCaseCommandRequest model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                UpdateCaseCommandResponse res = await _mediator.Send(model);
+
+                return Ok(res);
+            }
+
+            return BadRequest(ModelState);
+        }
+        [HttpGet("UpdateCaseIsComplated")]
+        public async Task<IActionResult> UpdateCaseIsComplated([FromQuery] CaseCompletedCommandRequest model)
+        {
+            if (ModelState.IsValid)
+            {
+                CaseCompletedCommandResponse res = await _mediator.Send(model);
+
+                return Ok(res);
+            }
+
+            return BadRequest(ModelState);
+        }
+
+        [HttpGet("DeleteCase")]
+        public async Task<IActionResult> DeleteCase([FromQuery] DeleteCaseCommandRequest model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                DeleteCaseCommandResponse res = await _mediator.Send(model);
+
+                return Ok(res);
+            }
+
+            return BadRequest(ModelState);
+        }
+
     }
 }

@@ -10,7 +10,7 @@ namespace ManagementApplication.APP.Repositories
     {
         Task<bool> AddAsync(T values);
         Task<bool> AddRangeAsync(List<T> values);
-        bool DeleteRange(List<T> values);
+        bool Delete(T values);
         bool Update(T values);
         Task<int> SaveAsync();
     }

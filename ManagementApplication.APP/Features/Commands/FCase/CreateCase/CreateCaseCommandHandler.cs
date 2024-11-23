@@ -1,6 +1,6 @@
 ﻿using ManagementApplication.APP.Features.Commands.FUser.CreateUser;
 using ManagementApplication.APP.Repositories;
-using ManagementApplication.APP.Repositories.Task;
+using ManagementApplication.APP.Repositories.Task.CreateCase;
 using ManagementApplication.DOMAIN;
 using MediatR;
 using System;
@@ -13,9 +13,9 @@ namespace ManagementApplication.APP.Features.Commands.FCase.CreateCase
 {
     public class CreateCaseCommandHandler : IRequestHandler<CreateCaseCommandRequest, CreateCaseCommandResponse>
     {
-        private readonly ICaseWriteRepository _caseWriteRepository;
+        private readonly ICreateCaseWriteRepository _caseWriteRepository;
 
-        public CreateCaseCommandHandler(ICaseWriteRepository caseWriteRepository)
+        public CreateCaseCommandHandler(ICreateCaseWriteRepository caseWriteRepository)
         {
             _caseWriteRepository = caseWriteRepository;
         }

@@ -1,4 +1,5 @@
-﻿using ManagementApplication.APP.Repositories.Task.GetByIdCase;
+﻿using ManagementApplication.APP.Features.Commands.FCase.UpdateCase;
+using ManagementApplication.APP.Repositories.Task.GetByIdCase;
 using ManagementApplication.APP.Repositories.Task.UpdateCase;
 using ManagementApplication.DOMAIN;
 using MediatR;
@@ -8,33 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementApplication.APP.Features.Commands.FCase.UpdateCase
+namespace ManagementApplication.APP.Features.Commands.FCase.IsTheCaseCompleted
 {
-    public class UpdateCaseCommandHandler : IRequestHandler<UpdateCaseCommandRequest, UpdateCaseCommandResponse>
+    public class CaseCompletedCommandHandler : IRequestHandler<CaseCompletedCommandRequest, CaseCompletedCommandResponse>
     {
-        readonly private IUpdateCaseWriteRepository _updateCaseWriteRepository;
         readonly private ICaseReadGetById _caseReadGetById;
+        private readonly IUpdateCaseWriteRepository _updateCaseWriteRepository;
 
-        public UpdateCaseCommandHandler(IUpdateCaseWriteRepository updateCaseWriteRepository, ICaseReadGetById caseReadGetById)
+        public CaseCompletedCommandHandler(ICaseReadGetById caseReadGetById, IUpdateCaseWriteRepository updateCaseWriteRepository)
         {
-            _updateCaseWriteRepository = updateCaseWriteRepository;
             _caseReadGetById = caseReadGetById;
+            _updateCaseWriteRepository = updateCaseWriteRepository;
         }
 
-        public async Task<UpdateCaseCommandResponse> Handle(UpdateCaseCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CaseCompletedCommandResponse> Handle(CaseCompletedCommandRequest request, CancellationToken cancellationToken)
         {
             Case _case = await _caseReadGetById.GetSingleAsync(x => x.Id == request.Id);
             if (_case != null)
             {
 
-                _case.IsCompleted = request.IsCompleted;
-                _case.Title = request.Title;
-                _case.Description = request.Description;
-                _case.UserId = request.UserId;
+                _case.IsCompleted = request.IsCompleted;   
                 _updateCaseWriteRepository.Update(_case);
                 await _updateCaseWriteRepository.SaveAsync();
 
-                return new UpdateCaseCommandResponse
+                return new CaseCompletedCommandResponse
                 {
                     Success = true,
                     Data = "",
@@ -42,7 +40,7 @@ namespace ManagementApplication.APP.Features.Commands.FCase.UpdateCase
                 };
             }
             else
-                return new UpdateCaseCommandResponse
+                return new CaseCompletedCommandResponse
                 {
                     Success = false,
                     Data = "",

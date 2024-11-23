@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 namespace ManagementApplication.APP.Features.Commands.FCase.UpdateCase
 {
     public class UpdateCaseCommandRequest:IRequest<UpdateCaseCommandResponse>
-    {
-        public int Id { get; set; } 
+    { 
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public bool IsCompleted { get; set; }
+        public int UserId { get; set; }
     }
 }

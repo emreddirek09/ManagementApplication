@@ -1,17 +1,19 @@
-﻿using ManagementApplication.APP.Repositories.Task;
-using ManagementApplication.APP.Repositories.Task.GetAllCase;
-using ManagementApplication.APP.Repositories.Task.GetByIdCase;
-using ManagementApplication.APP.Repositories.Users;
-using ManagementApplication.APP.Token;
-using ManagementApplication.DAL.Contexts;
-using ManagementApplication.DAL.Repositories.Task;
-using ManagementApplication.DAL.Repositories.Task.GetAllCase;
+﻿using ManagementApplication.APP.Repositories.Task.GetByIdCase;
 using ManagementApplication.DAL.Repositories.Task.GetByIdCase;
+using ManagementApplication.APP.Repositories.Task.CreateCase;
+using ManagementApplication.APP.Repositories.Task.DeleteCase;
+using ManagementApplication.APP.Repositories.Task.GetAllCase;
+using ManagementApplication.APP.Repositories.Task.UpdateCase;
+using ManagementApplication.DAL.Repositories.Task.CreateCase;
+using ManagementApplication.DAL.Repositories.Task.DeleteCase;
+using ManagementApplication.DAL.Repositories.Task.GetAllCase;
+using ManagementApplication.DAL.Repositories.Task.UpdateCase;
 using ManagementApplication.DAL.Repositories.Users;
-using ManagementApplication.DOMAIN;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using ManagementApplication.APP.Repositories.Users;
 using Microsoft.Extensions.DependencyInjection;
+using ManagementApplication.DAL.Contexts;
+using ManagementApplication.APP.Token;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManagementApplication.DAL
 {
@@ -23,12 +25,12 @@ namespace ManagementApplication.DAL
             services.AddScoped<IUserReadRepository, UserReadRepository>();
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
             services.AddScoped<ITokenHandler, APP.Token.TokenHandler>();
-            services.AddScoped<ICaseReadRepository, CaseReadRepository>();
-            services.AddScoped<ICaseWriteRepository, CaseWriteRepository>();
+            services.AddScoped<ICreateCaseReadRepository, CreateCaseReadRepository>();
+            services.AddScoped<ICreateCaseWriteRepository, CreateCaseWriteRepository>();
             services.AddScoped<ICaseReadGetById, CaseReadGetById>();
             services.AddScoped<IGetAllCaseReadRepository, GetAllCaseReadRepository>();
-
-
+            services.AddScoped<IUpdateCaseWriteRepository, UpdateCaseWriteRepository>();
+            services.AddScoped<IDeleteCaseWriteRepository, DeleteCaseWriteRepository>();
         }
     }
 }
