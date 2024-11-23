@@ -16,7 +16,7 @@ namespace ManagementApplication.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetAllUser")]
+        [HttpPost("GetAllUser")]
         public async Task<IActionResult> GetAllUser([FromQuery] GetAllUsersQueryRequest model)
         {
             if (ModelState.IsValid)

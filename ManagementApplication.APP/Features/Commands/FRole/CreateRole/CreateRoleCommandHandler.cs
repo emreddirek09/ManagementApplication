@@ -11,9 +11,9 @@ namespace ManagementApplication.APP.Features.Commands.FRole.CreateRole
 {
     public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommandRequest, CreateRoleCommandResponse>
     {
-        private readonly RoleManager<AppUser> _roleManager;
+        private readonly RoleManager<AppRole> _roleManager;
 
-        public CreateRoleCommandHandler(RoleManager<AppUser> roleManager)
+        public CreateRoleCommandHandler(RoleManager<AppRole> roleManager)
         {
             _roleManager = roleManager;
         }

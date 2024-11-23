@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ManagementApplication.DOMAIN
 {
-    public class AppRole : IdentityRole<string>
-    {
+    public class AppRole : IdentityRole<int>
+    { 
     }
 }

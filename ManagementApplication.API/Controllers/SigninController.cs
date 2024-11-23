@@ -15,8 +15,8 @@ namespace ManagementApplication.API.Controllers
         {
             _mediator = mediator;
         }
-
-        [HttpPost]
+        
+        [HttpPost("Signin")]
         public async Task<IActionResult> Signin([FromBody] LoginUserQueryRequest model)
         {
             if (ModelState.IsValid)

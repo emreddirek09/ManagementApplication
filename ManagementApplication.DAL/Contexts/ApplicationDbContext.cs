@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ManagementApplication.DAL.Contexts
 {
-    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>
+    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)

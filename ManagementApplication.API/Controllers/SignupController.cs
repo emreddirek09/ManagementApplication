@@ -17,7 +17,7 @@ namespace ManagementApplication.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost("Regiter")]
         public async Task<IActionResult> Regiter([FromBody] CreateUserCommandRequest model)
         {
             if (ModelState.IsValid)

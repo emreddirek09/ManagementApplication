@@ -20,7 +20,7 @@ namespace ManagementApplication.API.Controllers
         }
 
 
-        [HttpGet(Name = "AssignRole")]
+        [HttpGet("AssignRole")]
         public async Task<IActionResult> AssignRole()
         {
             GetAllUsersQueryResponse response = await _mediator.Send(new GetAllUsersQueryRequest());
@@ -29,8 +29,8 @@ namespace ManagementApplication.API.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddRole([FromBody] CreateRoleCommandRequest model)
+        [HttpPost("AddRole")]
+        public async Task<IActionResult> AddRole([FromQuery] CreateRoleCommandRequest model)
         {
             if (ModelState.IsValid)
             {
@@ -41,7 +41,7 @@ namespace ManagementApplication.API.Controllers
 
             return BadRequest(ModelState);
         }
-        [HttpPost(Name = "AssignRole")]
+        [HttpPost("AssignRole")]
         public async Task<IActionResult> AssignRole([FromBody] AssignRoleCommandRequest model)
         {
             if (ModelState.IsValid)
