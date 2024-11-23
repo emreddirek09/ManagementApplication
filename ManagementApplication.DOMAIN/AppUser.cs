@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ManagementApplication.DOMAIN
 {
-    public class AppUser : IdentityUser<int>
+    public class AppUser : IdentityUser<string>
     {
         public string Name { get; set; }
         public string Surname { get; set; }

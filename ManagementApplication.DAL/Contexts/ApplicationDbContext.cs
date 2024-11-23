@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ManagementApplication.DAL.Contexts
 {
-    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, int>
+    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)
@@ -16,8 +16,7 @@ namespace ManagementApplication.DAL.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            // Task tablosu ve User ilişkisi
+             
             builder.Entity<Case>()
                 .HasOne(t => t.User)
                 .WithMany()

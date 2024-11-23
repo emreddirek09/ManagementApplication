@@ -2,8 +2,10 @@
 using ManagementApplication.APP.Token;
 using ManagementApplication.DAL.Contexts;
 using ManagementApplication.DAL.Repositories.Users;
+using ManagementApplication.DOMAIN;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ManagementApplication.DAL
 {
@@ -15,6 +17,11 @@ namespace ManagementApplication.DAL
             services.AddScoped<IUserReadRepository, UserReadRepository>();
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
             services.AddScoped<ITokenHandler, APP.Token.TokenHandler>();
+
+            //services.AddIdentity<AppUser, IdentityRole>()
+            //                .AddEntityFrameworkStores<ApplicationDbContext>()
+            //                .AddDefaultTokenProviders();
+
 
         }
     }

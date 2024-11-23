@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementApplication.APP.Features.Queries.LoginUser
+namespace ManagementApplication.APP.Features.Commands.FRole.AssignRole
 {
-    public class LoginUserQueryResponse
+    public class AssignRoleCommandResponse
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public string? Role { get; set; }
-        public object? Token { get; set; }
-    } 
+        public object Data { get; set; }
+    }
 }

@@ -1,23 +1,20 @@
-﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿ using ManagementApplication.DOMAIN; 
+
+using MediatR;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection; 
 
 namespace ManagementApplication.APP
 {
     public static class ServiceRegistration
     {
         public static void AddApplicationServices(this IServiceCollection serviceCollection, Microsoft.Extensions.Configuration.ConfigurationManager configuration)
-        {
-
+        {  
+            // MediatR yapılandırması
             serviceCollection.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(typeof(ServiceRegistration).Assembly);
             });
-
         }
     }
 }

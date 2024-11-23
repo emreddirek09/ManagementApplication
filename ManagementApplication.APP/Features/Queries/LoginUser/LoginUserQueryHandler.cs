@@ -47,10 +47,7 @@ namespace ManagementApplication.APP.Features.Queries.LoginUser
                 var userRoles = await _userManager.GetRolesAsync(_user);
                 var authClaims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Role,_user.PhoneNumber),
-
-
-
+                    new Claim(ClaimTypes.Role,_user.PhoneNumber)
                 };
 
                 await _userManager.AddClaimAsync(_user, new Claim("_UserName", _user.UserName));
@@ -67,7 +64,7 @@ namespace ManagementApplication.APP.Features.Queries.LoginUser
                     Message = "Giriş Başarılı",
                     Success = true,
                     Token = token,
-                    Role = userRoles[0]
+                    Role = userRoles[0] ?? ""
                 };
             }
             return new LoginUserQueryResponse()
