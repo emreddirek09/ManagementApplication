@@ -1,12 +1,9 @@
-﻿using ManagementApplication.DAL.Contexts;
+﻿using ManagementApplication.APP.Repositories.Users;
+using ManagementApplication.APP.Token;
+using ManagementApplication.DAL.Contexts;
+using ManagementApplication.DAL.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection; 
 
 namespace ManagementApplication.DAL
 {
@@ -15,6 +12,9 @@ namespace ManagementApplication.DAL
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
+            services.AddScoped<IUserReadRepository, UserReadRepository>();
+            services.AddScoped<IUserWriteRepository, UserWriteRepository>();
+            services.AddScoped<ITokenHandler, APP.Token.TokenHandler>();
 
         }
     }
