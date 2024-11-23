@@ -12,5 +12,6 @@ namespace ManagementApplication.DOMAIN
         public string Name { get; set; }
         public string Surname { get; set; }
         public string KimlikNo { get; set; }
+        public ICollection<Case> Cases { get; set; }
     }
 }

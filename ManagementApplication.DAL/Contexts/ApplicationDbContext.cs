@@ -1,6 +1,7 @@
 ﻿using ManagementApplication.DOMAIN;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace ManagementApplication.DAL.Contexts
 {
@@ -16,13 +17,14 @@ namespace ManagementApplication.DAL.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-             
+
             builder.Entity<Case>()
-                .HasOne(t => t.User)
-                .WithMany()
-                .HasForeignKey(t => t.UserId)
+                .HasOne(c => c.User)
+                .WithMany(u => u.Cases)
+                .HasForeignKey(c => c.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
     }
+
 }
+

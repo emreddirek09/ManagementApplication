@@ -1,6 +1,12 @@
-﻿using ManagementApplication.APP.Repositories.Users;
+﻿using ManagementApplication.APP.Repositories.Task;
+using ManagementApplication.APP.Repositories.Task.GetAllCase;
+using ManagementApplication.APP.Repositories.Task.GetByIdCase;
+using ManagementApplication.APP.Repositories.Users;
 using ManagementApplication.APP.Token;
 using ManagementApplication.DAL.Contexts;
+using ManagementApplication.DAL.Repositories.Task;
+using ManagementApplication.DAL.Repositories.Task.GetAllCase;
+using ManagementApplication.DAL.Repositories.Task.GetByIdCase;
 using ManagementApplication.DAL.Repositories.Users;
 using ManagementApplication.DOMAIN;
 using Microsoft.AspNetCore.Identity;
@@ -17,10 +23,10 @@ namespace ManagementApplication.DAL
             services.AddScoped<IUserReadRepository, UserReadRepository>();
             services.AddScoped<IUserWriteRepository, UserWriteRepository>();
             services.AddScoped<ITokenHandler, APP.Token.TokenHandler>();
-
-            //services.AddIdentity<AppUser, IdentityRole>()
-            //                .AddEntityFrameworkStores<ApplicationDbContext>()
-            //                .AddDefaultTokenProviders();
+            services.AddScoped<ICaseReadRepository, CaseReadRepository>();
+            services.AddScoped<ICaseWriteRepository, CaseWriteRepository>();
+            services.AddScoped<ICaseReadGetById, CaseReadGetById>();
+            services.AddScoped<IGetAllCaseReadRepository, GetAllCaseReadRepository>();
 
 
         }

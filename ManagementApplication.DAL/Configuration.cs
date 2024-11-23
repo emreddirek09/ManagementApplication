@@ -13,8 +13,8 @@ namespace ManagementApplication.DAL
         {
             get
             {
-                ConfigurationManager configurationManager = new ConfigurationManager();
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ManagementApplication.API"));
+                ConfigurationManager configurationManager = new ConfigurationManager(); 
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ManagementApplication.Ui.Server")); 
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("DefaultConnection");
             }
