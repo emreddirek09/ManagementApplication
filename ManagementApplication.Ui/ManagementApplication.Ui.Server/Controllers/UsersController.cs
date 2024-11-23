@@ -1,4 +1,4 @@
-﻿using ManagementApplication.APP.Features.Queries.GetAllUsers;
+﻿using ManagementApplication.APP.Features.Queries.FUser.GetAllUsers;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

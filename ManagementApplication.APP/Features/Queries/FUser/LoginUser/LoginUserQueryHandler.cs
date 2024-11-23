@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementApplication.APP.Features.Queries.LoginUser
+namespace ManagementApplication.APP.Features.Queries.FUser.LoginUser
 {
     public class LoginUserQueryHandler : IRequestHandler<LoginUserQueryRequest, LoginUserQueryResponse>
     {

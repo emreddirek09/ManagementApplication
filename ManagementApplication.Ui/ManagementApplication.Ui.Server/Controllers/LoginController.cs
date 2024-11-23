@@ -1,4 +1,4 @@
-﻿using ManagementApplication.APP.Features.Queries.LoginUser;
+﻿using ManagementApplication.APP.Features.Queries.FUser.LoginUser;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementApplication.APP.Features.Queries.LoginUser
+namespace ManagementApplication.APP.Features.Queries.FUser.LoginUser
 {
     public class LoginUserQueryResponse
     {
@@ -12,5 +12,5 @@ namespace ManagementApplication.APP.Features.Queries.LoginUser
         public string Message { get; set; }
         public string? Role { get; set; }
         public object? Token { get; set; }
-    } 
+    }
 }

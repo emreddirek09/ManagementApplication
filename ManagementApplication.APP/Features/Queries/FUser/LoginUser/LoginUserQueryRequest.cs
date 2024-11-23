@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementApplication.APP.Features.Queries.LoginUser
+namespace ManagementApplication.APP.Features.Queries.FUser.LoginUser
 {
     public class LoginUserQueryRequest : IRequest<LoginUserQueryResponse>
     {

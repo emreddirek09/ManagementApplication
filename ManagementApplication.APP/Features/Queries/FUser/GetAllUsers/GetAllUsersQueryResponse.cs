@@ -1,6 +1,4 @@
-﻿ 
-
-namespace ManagementApplication.APP.Features.Queries.GetAllUsers
+﻿namespace ManagementApplication.APP.Features.Queries.FUser.GetAllUsers
 {
     public class GetAllUsersQueryResponse
     {

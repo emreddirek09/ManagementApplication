@@ -1,9 +1,9 @@
 ﻿using ManagementApplication.DOMAIN;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
 
-namespace ManagementApplication.APP.Features.Queries.GetAllUsers
+namespace ManagementApplication.APP.Features.Queries.FUser.GetAllUsers
 {
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQueryRequest, GetAllUsersQueryResponse>
     {

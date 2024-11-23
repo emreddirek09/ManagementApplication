@@ -1,6 +1,6 @@
-﻿using ManagementApplication.APP.Features.Queries.GetAllUsers;
+﻿using ManagementApplication.APP.Features.Queries.FUser.GetAllUsers;
 using ManagementApplication.DOMAIN;
-using MediatR; 
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

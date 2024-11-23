@@ -1,7 +1,7 @@
 ﻿using ManagementApplication.APP.Features.Commands.FRole.AssignRole;
 using ManagementApplication.APP.Features.Commands.FRole.CreateRole;
-using ManagementApplication.APP.Features.Queries.GetAllUsers;
-using MediatR; 
+using ManagementApplication.APP.Features.Queries.FUser.GetAllUsers;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApplication.Ui.Server.Controllers
