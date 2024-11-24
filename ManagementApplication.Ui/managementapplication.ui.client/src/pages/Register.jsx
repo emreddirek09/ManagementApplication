@@ -27,7 +27,7 @@ const Register = () => {
     e.preventDefault();  
       try {
           console.log("formData:", formData); 
-          const response = await axios.post("https://localhost:7127/api/Register", formData, {
+          const response = await axios.post("https://localhost:44379/api/Register", formData, {
               headers: {
                   "Content-Type": "application/json",  // JSON gönderimi
               },
@@ -59,6 +59,12 @@ const Register = () => {
             name="Name"
             value={formData.Name}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -70,6 +76,12 @@ const Register = () => {
             name="Surname"
             value={formData.Surname}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -81,6 +93,12 @@ const Register = () => {
             name="UserName"
             value={formData.UserName}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -92,6 +110,12 @@ const Register = () => {
             name="UserEmail"
             value={formData.UserEmail}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -103,6 +127,12 @@ const Register = () => {
             name="UserPassword"
             value={formData.UserPassword}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -114,6 +144,12 @@ const Register = () => {
             name="PhoneNumber"
             value={formData.PhoneNumber}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>
@@ -125,6 +161,12 @@ const Register = () => {
             name="KimlikNo"
             value={formData.KimlikNo}
             onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+          }}
             required
           />
         </div>

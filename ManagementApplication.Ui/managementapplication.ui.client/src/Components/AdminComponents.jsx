@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const UserListCompents = () => {
+const AdminComponents = () => {
     const [usercase, usercases] = useState();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedUserName, setselectedUserName] = useState(null);
@@ -29,7 +29,11 @@ const UserListCompents = () => {
         setselectedUserName(userName);
         setModalOpen(!modalOpen);
     };
-  
+
+    // const handleRoleChange = (event) => {
+    //     setSelectedRole(event.target.value);
+    // };
+
     const Change = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -58,9 +62,9 @@ const UserListCompents = () => {
                         <td>{user.phoneNumber}</td>
                         <td>{user.kimlikNo}</td>
 
-                        <td><button className='btn btn-success'>Güncelle</button></td>
+                        {/* <td><button className='btn btn-success'>Güncelle</button></td> */}
                         <td><button className='btn btn-primary' onClick={() => toggleModal(user.userName)}>Rol Ata</button></td>
-                        <td><button className='btn btn-danger'>Sil</button></td>
+                        {/* <td><button className='btn btn-danger'>Sil</button></td> */}
 
                     </tr>
                 )}
@@ -134,7 +138,7 @@ const UserListCompents = () => {
             console.log("formData:", formData);
             const response = await axios.post("https://localhost:44379/api/Register", formData, {
                 headers: {
-                    "Content-Type": "application/json",  
+                    "Content-Type": "application/json", // JSON gönderimi
                 },
             });
             if (response.data.success) {
@@ -397,4 +401,4 @@ const UserListCompents = () => {
     );
 };
 
-export default UserListCompents;
+export default AdminComponents;

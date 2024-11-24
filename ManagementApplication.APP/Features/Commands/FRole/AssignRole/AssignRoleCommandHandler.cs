@@ -32,6 +32,21 @@ namespace ManagementApplication.APP.Features.Commands.FRole.AssignRole
                         Success = true,
                         Message = "Atama İşlemi Başarılı"
                     };
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        if (item.Code== "UserAlreadyInRole")
+                        {
+
+                            return new AssignRoleCommandResponse()
+                            {
+                                Success = true,
+                                Message = "Mevcut Atama Daha önce yapıldı"
+                            };
+                        }
+                    }                     
+                }
             }
             catch (Exception ex)
             {
