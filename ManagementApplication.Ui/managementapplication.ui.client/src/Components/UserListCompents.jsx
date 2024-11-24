@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input } from "reactstrap";
 
@@ -6,12 +7,8 @@ const UserListCompents = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedUserName, setselectedUserName] = useState(null);
     const [selectedRole, setSelectedRole] = useState("");
+        
 
-    const formData = {
-        UserName: selectedUserName, // userName bir string olduğu için direkt gönderiyoruz
-        RoleName: selectedRole
-    };
-    
     useEffect(() => {
         GetUserList();
     }, []);
@@ -67,7 +64,7 @@ const UserListCompents = () => {
             });
             if (response.ok) {
                 const data = await response.json();
-                usercases(data.data); // Gelen veri formatına uygun olarak düzeltildi
+                usercases(data.data);  
             } else {
                 console.error("Fetch Hatası:", response.status, response.statusText);
             }
@@ -81,24 +78,25 @@ const UserListCompents = () => {
             debugger;
             alert("Lütfen bir kullanıcı ve rol seçin!");
             return;
-        }
-        debugger;
+        } 
         try {
-
-            const response = await fetch("https://localhost:44379/api/Admin/AssignRole", {
-                method: "POST",
+             
+            const formData = {
+                UserName: selectedUserName, // Tablo satırından alınan kullanıcı adı
+                RoleName: selectedRole     // Modal'da seçilen rol
+            };
+    
+            console.log("Form Data:", formData); // Debugging için
+    
+            const response = await axios.post("https://localhost:44379/api/Admin/AssignRole", formData, {
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    UserName: selectedUserName.userName,
-                    RoleName: selectedRole
-                })
             });
 
             if (response.ok) {
                 alert("Rol başarıyla atandı!");
-                setModalOpen(false); // Modalı kapat
+                setModalOpen(false);  
             } else {
                 alert("Rol atama işlemi başarısız!");
             }
@@ -114,28 +112,33 @@ const UserListCompents = () => {
              {contents}
 
         {/* Modal */}
-        <Modal isOpen={modalOpen} toggle={toggleModal}>
-            <ModalHeader toggle={toggleModal}>Rol Atama</ModalHeader>
+        <Modal isOpen={modalOpen} toggle={() => setModalOpen(false)}>
+            <ModalHeader toggle={() => setModalOpen(false)}>Rol Ata</ModalHeader>
             <ModalBody>
-                <FormGroup>
-                    <Label for="roleSelect">Rol Seçin</Label>
-                    <Input type="select" name="role" id="roleSelect" value={selectedRole} onChange={handleRoleChange}>
-                        <option value="">Rol Seçin</option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-                    </Input>
-                </FormGroup>
+                <p>{selectedUserName} kullanıcısına rol atayın</p>
+                <select
+                    className="form-select"
+                    value={selectedRole}
+                    onChange={(e) => setSelectedRole(e.target.value)} // Rol seçim işlemi
+                >
+                    <option value="">Seçim yapın</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={assignRole}>
-                    Kaydet
-                </Button>{" "}
-                <Button color="secondary" onClick={toggleModal}>
+                <button
+                    className="btn btn-primary"
+                    onClick={assignRole} // Gönderim fonksiyonu
+                >
+                    Gönder
+                </button>
+                <button className="btn btn-secondary" onClick={() => setModalOpen(false)}>
                     İptal
-                </Button>
+                </button>
             </ModalFooter>
         </Modal>
-    </div>
+     </div>
     );
 };
 

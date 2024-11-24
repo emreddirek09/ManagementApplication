@@ -40,7 +40,7 @@ namespace ManagementApplication.Ui.Server.Controllers
             return BadRequest(ModelState);
         }
         [HttpPost("AssignRole")]
-        public async Task<IActionResult> AssignRole([FromForm] AssignRoleCommandRequest model)
+        public async Task<IActionResult> AssignRole([FromBody] AssignRoleCommandRequest model)
         {
             if (ModelState.IsValid)
             {
