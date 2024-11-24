@@ -28,7 +28,7 @@ namespace ManagementApplication.Ui.Server.Controllers
         }
 
         [HttpPost("AddRole")]
-        public async Task<IActionResult> AddRole([FromQuery] CreateRoleCommandRequest model)
+        public async Task<IActionResult> AddRole([FromBody] CreateRoleCommandRequest model)
         {
             if (ModelState.IsValid)
             {
@@ -40,7 +40,7 @@ namespace ManagementApplication.Ui.Server.Controllers
             return BadRequest(ModelState);
         }
         [HttpPost("AssignRole")]
-        public async Task<IActionResult> AssignRole([FromBody] AssignRoleCommandRequest model)
+        public async Task<IActionResult> AssignRole([FromForm] AssignRoleCommandRequest model)
         {
             if (ModelState.IsValid)
             {

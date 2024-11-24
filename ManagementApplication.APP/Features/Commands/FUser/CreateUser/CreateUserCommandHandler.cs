@@ -29,7 +29,7 @@ namespace ManagementApplication.APP.Features.Commands.FUser.CreateUser
             {
                 IdentityResult result = await _userManager.CreateAsync(new()
                 { 
-                    Name = request.Name,
+                    Name = request.Name, 
                     Surname=request.SurName,
                     KimlikNo=request.KimlikNo,
                     UserName = request.UserName,
