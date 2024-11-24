@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Register from './Register';
 
 function App() {
 
     return (
         <div>
-           <h1>Merhaba </h1>
+            <Register/>
          </div>
     );
+
+    async function populateWeatherData() {
+        const response = await fetch('weatherforecast');
+        if (response.ok) {
+            const data = await response.json();
+            setForecasts(data);
+        }
+    }
 
     //const [forecasts, setForecasts] = useState();
 

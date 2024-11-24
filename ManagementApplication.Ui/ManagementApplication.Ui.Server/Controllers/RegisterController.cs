@@ -15,17 +15,18 @@ namespace ManagementApplication.Ui.Server.Controllers
         {
             _mediator = mediator;
         }
-
+         
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] CreateUserCommandRequest model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                CreateUserCommandResponse res = await _mediator.Send(model);
-                return Ok(res);
+                return BadRequest(ModelState);  // Model hatalarını döndürüyoruz
             }
 
-            return NotFound();
+            var response = await _mediator.Send(model);
+            return Ok(response);
         }
+
     }
 }
