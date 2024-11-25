@@ -10,6 +10,8 @@ namespace ManagementApplication.APP.Features.Queries.FUser.LoginUser
     {
         public bool Success { get; set; }
         public string Message { get; set; }
+        public string FullName { get; set; }
+        public int UserId { get; set; }
         public string? Role { get; set; }
         public object? Token { get; set; }
     }

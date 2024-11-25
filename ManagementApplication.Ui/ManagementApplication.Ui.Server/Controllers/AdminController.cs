@@ -2,12 +2,14 @@
 using ManagementApplication.APP.Features.Commands.FRole.CreateRole;
 using ManagementApplication.APP.Features.Queries.FUser.GetAllUsers;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApplication.Ui.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles ="Admin")]
     public class AdminController : ControllerBase
     {
         readonly IMediator _mediator;

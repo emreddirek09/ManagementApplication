@@ -6,6 +6,7 @@ using ManagementApplication.APP.Features.Commands.FRole.AssignRole;
 using ManagementApplication.APP.Features.Queries.FCase.GetAllCase;
 using ManagementApplication.APP.Features.Queries.FCase.GetCaseById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

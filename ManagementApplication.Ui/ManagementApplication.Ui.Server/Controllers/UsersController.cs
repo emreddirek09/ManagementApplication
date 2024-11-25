@@ -1,5 +1,6 @@
 ﻿using ManagementApplication.APP.Features.Queries.FUser.GetAllUsers;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,8 @@ namespace ManagementApplication.Ui.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles = "Admin")]
+
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;

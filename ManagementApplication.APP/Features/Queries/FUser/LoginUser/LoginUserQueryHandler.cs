@@ -63,8 +63,10 @@ namespace ManagementApplication.APP.Features.Queries.FUser.LoginUser
                 {
                     Message = "Giriş Başarılı",
                     Success = true,
-                    Token = token,
-                    Role = userRoles[0] ?? ""
+                    FullName = _user.Name + " " + _user.Surname,
+                    UserId = _user.Id,
+                    Role = userRoles[0] ?? "",
+                    Token = token
                 };
             }
             return new LoginUserQueryResponse()
