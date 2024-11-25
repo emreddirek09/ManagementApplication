@@ -65,8 +65,8 @@ namespace ManagementApplication.Ui.Server.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet("UpdateCase")]
-        public async Task<IActionResult> UpdateCase([FromQuery] UpdateCaseCommandRequest model)
+        [HttpPut("UpdateCase")]
+        public async Task<IActionResult> UpdateCase([FromBody] UpdateCaseCommandRequest model)
         {
             if (ModelState.IsValid)
             {
@@ -78,8 +78,8 @@ namespace ManagementApplication.Ui.Server.Controllers
 
             return BadRequest(ModelState);
         }
-        [HttpGet("UpdateCaseIsComplated")]
-        public async Task<IActionResult> UpdateCaseIsComplated([FromQuery] CaseCompletedCommandRequest model)
+        [HttpPut("UpdateCaseIsComplated")]
+        public async Task<IActionResult> UpdateCaseIsComplated([FromBody] CaseCompletedCommandRequest model)
         {
             if (ModelState.IsValid)
             {
@@ -91,8 +91,8 @@ namespace ManagementApplication.Ui.Server.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet("DeleteCase")]
-        public async Task<IActionResult> DeleteCase([FromQuery] DeleteCaseCommandRequest model)
+        [HttpDelete("DeleteCase")]
+        public async Task<IActionResult> DeleteCase([FromBody] DeleteCaseCommandRequest model)
         {
             if (ModelState.IsValid)
             {
