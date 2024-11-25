@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FormGroup, Input, Table, Label } from "reactstrap";
-import axios from "axios"; // Axios importu ekledik
+import axios from "axios"; 
 
 const UserCaseComponent = () => {
   const _userId = localStorage.getItem("userId");
@@ -24,7 +24,7 @@ const UserCaseComponent = () => {
   const [taskToChangeStatus, setTaskToChangeStatus] = useState(null);
   const [newStatus, setNewStatus] = useState(null);
 
-  const [isEditing, setIsEditing] = useState(false);  // Güncelleme kontrolü için state
+  const [isEditing, setIsEditing] = useState(false);  
 
   const Change = (e) => {
     const { name, value } = e.target;
@@ -127,8 +127,7 @@ const UserCaseComponent = () => {
         throw new Error(response.data.message);
       }
     } catch (error) {
-      console.error("API Hatası:", error);
-      // Eğer API isteği başarısız olursa, frontend'deki değişiklik geri alınabilir
+      console.error("API Hatası:", error); 
       const revertedCases = usercase.map(c =>
         c.id === taskId ? { ...c, isCompleted: currentStatus } : c
       );
@@ -168,8 +167,7 @@ const UserCaseComponent = () => {
     });
     setIsModalOpen(true);
   };
-
-  // Durum değişikliğini onaylama fonksiyonu
+ 
   const confirmStatusChange = async () => {
     try {
       const updatedCases = usercase.map(c =>
@@ -196,7 +194,7 @@ const UserCaseComponent = () => {
     }
   };
 
-  // Durum değişikliğini iptal etme fonksiyonu
+  
   const cancelStatusChange = () => {
     setIsStatusChangeModalOpen(false);
     setNewStatus(null);

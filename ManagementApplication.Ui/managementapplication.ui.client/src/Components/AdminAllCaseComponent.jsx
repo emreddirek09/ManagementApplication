@@ -20,8 +20,8 @@ const AdminAllCaseComponent = () => {
     const [taskToChangeStatus, setTaskToChangeStatus] = useState(null);
     const [newStatus, setNewStatus] = useState(false);
     const [_SUserId, _SelectUserId] = useState(null);     
-    const [responseMessage, setResponseMessage] = useState(""); // Success message
-    const [errorMessage, setErrorMessage] = useState(""); // Error message
+    const [responseMessage, setResponseMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState(""); 
 
     useEffect(() => {
         GetCaseList();
@@ -56,7 +56,7 @@ const AdminAllCaseComponent = () => {
             console.log("response.response", response)
             if (response.data.success) {
                 setIsStatusChangeModalOpen(false);
-                GetCaseList();  // Güncel veri çekmek için listeyi tekrar al
+                GetCaseList(); 
             } else {
                 console.error("Durum güncellenirken hata oluştu");
             }
@@ -74,7 +74,7 @@ const AdminAllCaseComponent = () => {
 
             if (response.data.success) {
                 setIsDeleteModalOpen(false);
-                GetCaseList();  // Güncel veri çekmek için listeyi tekrar al
+                GetCaseList();  
             } else {
                 console.error("Görev silinirken hata oluştu");
             }
@@ -93,8 +93,6 @@ const AdminAllCaseComponent = () => {
         });
         setEditModalOpen(true);
     };
-
-    // handleEditTask fonksiyonunu updateTask fonksiyonu ile güncelledik
     const handleEditTask = async (e) => {
         e.preventDefault();
         try {
@@ -105,11 +103,11 @@ const AdminAllCaseComponent = () => {
             });
 
             if (response.data.success) {
-                setResponseMessage("Görev başarıyla güncellendi!"); // Success message
+                setResponseMessage("Görev başarıyla güncellendi!"); 
                 setEditModalOpen(false);
-                GetCaseList();  // Güncel veri çekmek için listeyi tekrar al
+                GetCaseList();  
             } else {
-                setErrorMessage(response.data.message); // Error message
+                setErrorMessage(response.data.message); 
             }
         } catch (error) {
             console.error("Axios Hatası:", error.message);

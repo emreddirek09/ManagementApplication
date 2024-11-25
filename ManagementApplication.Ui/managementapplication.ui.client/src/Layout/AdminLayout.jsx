@@ -11,14 +11,11 @@ import {
 
 const Layout = () => {
   const fullName = localStorage.getItem("fullName");
-  const navigate = useNavigate(); // useNavigate hook'u ile yönlendirme yapacağız
+  const navigate = useNavigate(); 
 
-  // Çıkış fonksiyonu
   const handleLogout = () => {
-    // localStorage'dan kullanıcı bilgilerini temizle
     localStorage.removeItem("fullName");
     localStorage.removeItem("token");
-    // Ana sayfaya yönlendir
     navigate("/");
   };
 

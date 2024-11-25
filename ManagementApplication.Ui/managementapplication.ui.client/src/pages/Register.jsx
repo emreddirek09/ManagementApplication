@@ -32,18 +32,15 @@ const Register = () => {
         formData,
         {
           headers: {
-            "Content-Type": "application/json", // JSON gönderimi
+            "Content-Type": "application/json",  
           },
         }
       );
 
       setResponseMessage("Kayıt başarılı! API yanıtı: " + JSON.stringify(response.data));
-      setErrorMessage("");
-
-      // Eğer success true ise, kullanıcıyı başlangıç sayfasına yönlendir
+      setErrorMessage(""); 
       if (response.data.success) {
-        // Yönlendirme
-        navigate("/");  // '/' ana sayfaya yönlendiriyor
+        navigate("/"); 
       }
 
     } catch (error) {

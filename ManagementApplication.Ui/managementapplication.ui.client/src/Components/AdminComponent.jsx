@@ -134,7 +134,7 @@ const AdminComponent = () => {
             console.log("formData:", formData);
             const response = await axios.post("https://localhost:44379/api/Register", formData, {
                 headers: {
-                    "Content-Type": "application/json", // JSON gönderimi
+                    "Content-Type": "application/json", 
                 },
             });
             if (response.data.success) {
