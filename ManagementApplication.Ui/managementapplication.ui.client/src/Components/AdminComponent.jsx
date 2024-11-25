@@ -29,7 +29,7 @@ const AdminComponent = () => {
         setselectedUserName(userName);
         setModalOpen(!modalOpen);
     };
- 
+
     const Change = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -156,7 +156,7 @@ const AdminComponent = () => {
             }
         }
         GetUserList();
-        
+
     };
 
     return (

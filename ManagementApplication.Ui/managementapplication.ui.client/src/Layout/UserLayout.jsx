@@ -27,10 +27,7 @@ const Layout = () => {
       <Navbar color="light" light expand="md">
         <NavbarBrand href="#">CRM</NavbarBrand>
         <Nav className="me-auto" navbar>
-          {/* Kullanıcıya özel bağlantılar */}
-          <NavItem>
-            <NavLink href="/UserListComponent/">Kullanıcı Listesi</NavLink>
-          </NavItem>
+           
           <NavItem>
             <NavLink href="/UserCaseComponent/">Case Yönetimi</NavLink>
           </NavItem>

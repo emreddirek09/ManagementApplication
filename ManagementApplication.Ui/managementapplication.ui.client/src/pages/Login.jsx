@@ -10,6 +10,7 @@ const Login = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate(); 
+
   const loginChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,13 +30,14 @@ const Login = () => {
       });
 
       // Token ve role bilgisini localStorage'a kaydediyoruz
-      const { token, role ,fullName,userId} = response.data.token;
+      const { token, role, fullName, userId } = response.data.token;
       localStorage.setItem("jwtToken", response.data.token);
       localStorage.setItem("userRole", response.data.role); // Role bilgisi de kaydediliyor
       localStorage.setItem("fullName", response.data.fullName);
       localStorage.setItem("userId", response.data.userId); // Role bilgisi de kaydediliyor
+
       // Role'ye göre yönlendirme yapıyoruz
-       if (response.data.role === "Admin") {
+      if (response.data.role === "Admin") {
         navigate("/AdminComponent");  // Admin için HomePage yönlendirmesi
       } else if (response.data.role === "User") {
         navigate("/UserCaseComponent");  // User için UserCaseComponent yönlendirmesi
@@ -53,37 +55,101 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "0 auto", padding: "20px", border: "1px solid #ccc" }}>
-      <h1>Giriş Yap</h1>
-      <form onSubmit={loginSubmit}>
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="UserNameOrMail">Kullanıcı Adı & EMail:</label>
-          <input
-            type="text"
-            id="UserNameOrMail"
-            name="UserNameOrMail"
-            value={formData.UserNameOrMail}
-            onChange={loginChange}
-            required
-          />
-        </div> 
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="UserPassword">Şifre:</label>
-          <input
-            type="password"
-            id="UserPassword"
-            name="UserPassword"
-            value={formData.UserPassword}
-            onChange={loginChange}
-            required
-          />
-        </div>
+    <div 
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f0f0f0',
+      }}
+    >
+      <div 
+        style={{
+          width: '100%',
+          maxWidth: '400px',
+          padding: '20px',
+          backgroundColor: '#fff',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Giriş Yap</h2>
         
-        <button type="submit">Giriş Yap</button>
-      </form>
+        <form onSubmit={loginSubmit}>
+          <div style={{ marginBottom: '15px' }}>
+            <label htmlFor="UserNameOrMail" style={{ display: 'block', marginBottom: '5px' }}>Kullanıcı Adı & EMail:</label>
+            <input
+              type="text"
+              id="UserNameOrMail"
+              name="UserNameOrMail"
+              value={formData.UserNameOrMail}
+              onChange={loginChange}
+              required
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+              }}
+            />
+          </div>
+          
+          <div style={{ marginBottom: '15px' }}>
+            <label htmlFor="UserPassword" style={{ display: 'block', marginBottom: '5px' }}>Şifre:</label>
+            <input
+              type="password"
+              id="UserPassword"
+              name="UserPassword"
+              value={formData.UserPassword}
+              onChange={loginChange}
+              required
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+              }}
+            />
+          </div>
 
-      {responseMessage && <p style={{ color: "green" }}>{responseMessage}</p>}
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+          <button 
+            type="submit" 
+            style={{
+              width: '100%',
+              padding: '10px',
+              backgroundColor: '#4CAF50',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Giriş Yap
+          </button>
+        </form>
+
+        {responseMessage && <p style={{ color: "green", marginTop: "15px", textAlign: 'center' }}>{responseMessage}</p>}
+        {errorMessage && <p style={{ color: "red", marginTop: "15px", textAlign: 'center' }}>{errorMessage}</p>}
+
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <p>
+            Henüz kayıt olmadınız mı?{" "}
+            <button
+              onClick={() => navigate('/Register')}
+              style={{
+                background: 'none',
+                color: '#4CAF50',
+                border: 'none',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              KAYDOL
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

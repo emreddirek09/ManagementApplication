@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // useNavigate import ediliyor
 
 const Register = () => {
-    const [formData, setFormData] = useState({
-        Name: "",
-        Surname: "",
-        UserName: "",
-        UserEmail: "",
-        UserPassword: "",
-        PhoneNumber: "",
-        KimlikNo: "",
-    });
-
-   
+  const navigate = useNavigate(); // navigate fonksiyonunu tanımlıyoruz
+  const [formData, setFormData] = useState({
+    Name: "",
+    Surname: "",
+    UserName: "",
+    UserEmail: "",
+    UserPassword: "",
+    PhoneNumber: "",
+    KimlikNo: "",
+  });
 
   const [responseMessage, setResponseMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,35 +22,45 @@ const Register = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-   
-  const handleSubmit = async (e) => {
-    e.preventDefault();  
-      try {
-          console.log("formData:", formData); 
-          const response = await axios.post("https://localhost:44379/api/Register", formData, {
-              headers: {
-                  "Content-Type": "application/json",  // JSON gönderimi
-              },
-          });
 
-       
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("formData:", formData); // Konsolda form verilerini kontrol et
+      const response = await axios.post(
+        "https://localhost:44379/api/Register",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json", // JSON gönderimi
+          },
+        }
+      );
+
       setResponseMessage("Kayıt başarılı! API yanıtı: " + JSON.stringify(response.data));
-      setErrorMessage("");  
-      } catch (error) {
-          if (error.response) {
-              console.error("Hata Detayları:", error.response.data);
-              setErrorMessage("Hata: " + JSON.stringify(error.response.data));
-          } else {
-              console.error("Axios Hatası:", error.message);
-              setErrorMessage("İstek sırasında bir sorun oluştu: " + error.message);
-          }
+      setErrorMessage("");
+
+      // Eğer success true ise, kullanıcıyı başlangıç sayfasına yönlendir
+      if (response.data.success) {
+        // Yönlendirme
+        navigate("/");  // '/' ana sayfaya yönlendiriyor
       }
+
+    } catch (error) {
+      if (error.response) {
+        console.error("Hata Detayları:", error.response.data);
+        setErrorMessage("Hata: " + JSON.stringify(error.response.data));
+      } else {
+        console.error("Axios Hatası:", error.message);
+        setErrorMessage("İstek sırasında bir sorun oluştu: " + error.message);
+      }
+    }
   };
 
   return (
     <div style={{ maxWidth: "500px", margin: "0 auto", padding: "20px", border: "1px solid #ccc" }}>
       <h1>Kayıt Ol</h1>
-      <form onSubmit={handleSubmit}> 
+      <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "10px" }}>
           <label htmlFor="Name">Ad:</label>
           <input
@@ -64,7 +74,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -81,7 +91,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -98,7 +108,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -115,7 +125,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -132,7 +142,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -149,7 +159,7 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
@@ -166,13 +176,15 @@ const Register = () => {
               padding: "10px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-          }}
+            }}
             required
           />
         </div>
-        <button type="submit" className="btn btn-success">Kaydol</button>
+        <button type="submit" className="btn btn-success">
+          Kaydol
+        </button>
       </form>
-       
+
       {responseMessage && <p style={{ color: "green" }}>{responseMessage}</p>}
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>
