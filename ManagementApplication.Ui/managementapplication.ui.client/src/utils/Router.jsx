@@ -19,15 +19,11 @@ import UserListComponent from "../Components/UserListComponent";
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <HomePage />
+        element: <Login />
     },
     {
         path: "/Register",
         element: <Register />
-    },
-    {
-        path: "/Login",
-        element: <Login />
     },
     {
         path: "/",

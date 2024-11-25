@@ -12,10 +12,10 @@ const Layout = () => {
   return (
     <div className="container mt-3">
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">CRM</NavbarBrand>
-        <Nav className="me-auto" navbar> 
+      <NavbarBrand href="#">CRM</NavbarBrand>
+      <Nav className="me-auto" navbar> 
           <NavItem>
-            <NavLink href="/CaseComponents/">Case Yönetimi</NavLink>
+            <NavLink href="/UserListComponent/">Case Yönetimi</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

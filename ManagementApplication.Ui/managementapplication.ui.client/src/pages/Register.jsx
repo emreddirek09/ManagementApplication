@@ -170,7 +170,7 @@ const Register = () => {
             required
           />
         </div>
-        <button type="submit">Kaydol</button>
+        <button type="submit" className="btn btn-success">Kaydol</button>
       </form>
        
       {responseMessage && <p style={{ color: "green" }}>{responseMessage}</p>}
