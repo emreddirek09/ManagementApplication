@@ -5,13 +5,7 @@ Bu proje, bir ekip içinde görevlerin etkin bir şekilde takip edilmesi ve yön
 Backend
 Backend tarafında, CQRS (Command and Query Responsibility Segregation) mimarisi ile birlikte MediatR kütüphanesi kullanılmıştır. Ayrıca, proje Onion Architecture (Soğan Mimarisi) prensiplerine uygun bir şekilde tasarlanmıştır. Bu yaklaşım, kodun sürdürülebilirliğini artırırken modülerlik ve bağımsızlık sağlar.
 
-Backend, .NET Core framework’ü ile geliştirilmiş olup, veritabanı işlemleri için Entity Framework Core kullanılarak Code-First Yaklaşımı uygulanmıştır. Görevler ve kullanıcı verileri MsSQL veritabanında saklanmaktadır. API, aşağıdaki uç noktaları sağlamaktadır:
-
-GET /tasks: Tüm görevleri döner.
-POST /tasks: Yeni bir görev oluşturur.
-PUT /tasks/:id: Belirtilen görevi günceller.
-DELETE /tasks/:id: Belirtilen görevi siler.
-Ek olarak, kimlik doğrulama ve yetkilendirme özellikleri sunulmuştur.
+Backend, .NET Core framework’ü ile geliştirilmiş olup, veritabanı işlemleri için Entity Framework Core kullanılarak Code-First Yaklaşımı uygulanmıştır. Görevler ve kullanıcı verileri MsSQL veritabanında saklanmaktadır. API, aşağıdaki uç noktaları sağlamaktadır: 
 
 Kullanıcılar, yalnızca kendilerine ait görevleri görebilir, düzenleyebilir ve silebilir.
 Yönetici (admin) rolüne sahip kullanıcılar ise tüm görevleri görme ve düzenleme yetkisine sahiptir.
