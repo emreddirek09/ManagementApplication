@@ -15,12 +15,13 @@ const Layout = () => {
         <NavbarBrand href="/">CRM</NavbarBrand>
         <Nav className="me-auto" navbar>
           <NavItem>
-            <NavLink href="/AdminComponents/">Kullanıcılar</NavLink>
+            <NavLink href="/AdminComponent/">Kullanıcılar</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/UserListCompents/">Case Yönetim</NavLink>
+            <NavLink href="/AdminAllCaseComponent/">Case Yönetim</NavLink>
           </NavItem>
         </Nav>
+        <NavbarBrand href="/">Hoşgeldin</NavbarBrand>
       </Navbar>
  
       <div style={{ padding: "20px" }}>

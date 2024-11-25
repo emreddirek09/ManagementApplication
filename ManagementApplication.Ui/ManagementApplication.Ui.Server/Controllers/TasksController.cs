@@ -54,7 +54,7 @@ namespace ManagementApplication.Ui.Server.Controllers
         public async Task<IActionResult> GetAll([FromQuery] GetAllCaseQueriesRequest model)
         {
             if (ModelState.IsValid)
-            {
+            {   
 
                 GetAllCaseQueriesResponse res = await _mediator.Send(model);
 

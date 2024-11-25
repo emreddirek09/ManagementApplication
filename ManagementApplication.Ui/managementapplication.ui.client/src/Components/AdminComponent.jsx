@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const AdminComponents = () => {
+const AdminComponent = () => {
     const [usercase, usercases] = useState();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedUserName, setselectedUserName] = useState(null);
@@ -29,11 +29,7 @@ const AdminComponents = () => {
         setselectedUserName(userName);
         setModalOpen(!modalOpen);
     };
-
-    // const handleRoleChange = (event) => {
-    //     setSelectedRole(event.target.value);
-    // };
-
+ 
     const Change = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -160,6 +156,7 @@ const AdminComponents = () => {
             }
         }
         GetUserList();
+        
     };
 
     return (
@@ -401,4 +398,4 @@ const AdminComponents = () => {
     );
 };
 
-export default AdminComponents;
+export default AdminComponent;

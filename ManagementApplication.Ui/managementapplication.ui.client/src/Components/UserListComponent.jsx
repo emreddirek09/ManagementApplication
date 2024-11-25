@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Table, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const UserListCompents = () => {
+const UserListCompent = () => {
     const [usercase, usercases] = useState();
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedUserName, setselectedUserName] = useState(null);
@@ -397,4 +397,4 @@ const UserListCompents = () => {
     );
 };
 
-export default UserListCompents;
+export default UserListCompent;

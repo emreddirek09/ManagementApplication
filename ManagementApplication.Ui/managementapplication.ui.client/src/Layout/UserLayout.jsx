@@ -15,7 +15,7 @@ const Layout = () => {
         <NavbarBrand href="/">CRM</NavbarBrand>
         <Nav className="me-auto" navbar> 
           <NavItem>
-            <NavLink href="/UserListCompents/">Case Yönetimi</NavLink>
+            <NavLink href="/CaseComponents/">Case Yönetimi</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

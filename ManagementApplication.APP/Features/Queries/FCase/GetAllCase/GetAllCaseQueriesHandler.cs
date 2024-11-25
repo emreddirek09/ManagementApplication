@@ -38,6 +38,7 @@ namespace ManagementApplication.APP.Features.Queries.FCase.GetAllCase
             var res = await query
                 .Select(c => new
                 {
+                    c.Id,
                     c.Title,
                     c.Description,
                     c.IsCompleted,

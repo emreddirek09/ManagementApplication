@@ -1,17 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout/AdminLayout";
-import AdminComponents from "./Components/AdminComponents";
-import UserListCompents from "./Components/UserListCompents";
+import AdminComponent from "./Components/AdminComponent";
+import UserListCompent from "./Components/UserListCompent";
+import CaseComponent from "./Components/CaseComponent";
+
  
 const App = () => {
   return (
     <Router>
       <Routes> 
         <Route path="/" element={<Layout />}> 
-        <Route index element={<Navigate to="AdminComponents" />} />
-          <Route path="AdminComponents" element={<AdminComponents />} />
-          <Route path="UserListCompents" element={<UserListCompents />} />
+        <Route index element={<Navigate to="AdminComponent" />} />
+          <Route path="AdminComponent" element={<AdminComponent />} />
+          <Route path="UserListCompent" element={<UserListCompent />} />
+          <Route path="CaseComponent" element={<CaseComponent />} />
+
          </Route>
       </Routes>
     </Router>
