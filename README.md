@@ -1,9 +1,11 @@
+Geliştirmeye devam edilmektedir. Ara verildi.
+
 Görev Yönetim Uygulaması
 
-Bu proje, bir ekip içinde görevlerin etkin bir şekilde takip edilmesi ve yönetilmesini sağlayan basit bir Görev Yönetim Uygulamasıdır. Proje, Frontend (Kullanıcı Arayüzü) ve Backend (Sunucu Tarafı) olmak üzere iki ana bileşen halinde geliştirilmiştir.
+Bu proje, bir ekip içinde görevlerin etkin bir şekilde takip edilmesi ve yönetilmesini sağlayan basit bir Görev Yönetim Uygulamasıdır. Proje, Frontend ve Backend olmak üzere iki ana bileşen halinde geliştirilmiştir.
 
 Backend
-Backend tarafında, CQRS (Command and Query Responsibility Segregation) mimarisi ile birlikte MediatR kütüphanesi kullanılmıştır. Ayrıca, proje Onion Architecture (Soğan Mimarisi) prensiplerine uygun bir şekilde tasarlanmıştır. Bu yaklaşım, kodun sürdürülebilirliğini artırırken modülerlik ve bağımsızlık sağlar.
+Backend tarafında, CQRS mimarisi ile birlikte MediatR kütüphanesi kullanılmıştır. Ayrıca, proje Onion Architecture prensiplerine uygun bir şekilde tasarlanmıştır. Bu yaklaşım, kodun sürdürülebilirliğini artırırken modülerlik ve bağımsızlık sağlar.
 
 Backend, .NET Core framework’ü ile geliştirilmiş olup, veritabanı işlemleri için Entity Framework Core kullanılarak Code-First Yaklaşımı uygulanmıştır. Görevler ve kullanıcı verileri MsSQL veritabanında saklanmaktadır. API, aşağıdaki uç noktaları sağlamaktadır: 
 
